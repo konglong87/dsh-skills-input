@@ -1,5 +1,5 @@
 {
-  "status": "pending-real-dsh-capture",
+  "status": "verified-real-dsh",
   "required": [
     {
       "name": "desktop-open-search-select",

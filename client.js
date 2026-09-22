@@ -534,6 +534,7 @@ function SkillButton(props) {
   ));
 }
 function apply(ctx) {
+  const sessions = ctx.sessions;
   ctx.effect(() => {
     if (typeof document === "undefined") return void 0;
     const style = document.createElement("style");
@@ -546,7 +547,7 @@ function apply(ctx) {
     name: SLOT,
     id: PLUGIN_ID,
     order: 110
-  }, (props) => /* @__PURE__ */ import_react4.default.createElement(SkillButton, { ...props }))), `${PLUGIN_ID}: slot`);
+  }, (props) => /* @__PURE__ */ import_react4.default.createElement(SkillButton, { ...props, sessions }))), `${PLUGIN_ID}: slot`);
 }
 /*! Bundled license information:
 

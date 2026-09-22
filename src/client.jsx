@@ -72,6 +72,8 @@ function SkillButton(props) {
 }
 
 export function apply(ctx) {
+  const sessions = ctx.sessions
+
   ctx.effect(() => {
     if (typeof document === 'undefined') return undefined
     const style = document.createElement('style')
@@ -85,5 +87,5 @@ export function apply(ctx) {
     name: SLOT,
     id: PLUGIN_ID,
     order: 110,
-  }, props => <SkillButton {...props} />)), `${PLUGIN_ID}: slot`)
+  }, props => <SkillButton {...props} sessions={sessions} />)), `${PLUGIN_ID}: slot`)
 }

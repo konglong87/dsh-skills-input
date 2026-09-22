@@ -29,15 +29,19 @@ npm test
 
 ## 真实 dsh 验收清单
 
-以下项目必须在真实 dsh 页面完成，并在 `screenshots.json` 中留下桌面/移动端截图：
+以下项目已于 2026-09-22 在真实 dsh 页面完成，并在 `screenshots.json` 中留下桌面/移动端截图：
 
-- 打开“选择 Skill”、搜索、单选并关闭。
-- 选择后原有草稿保留，未触发自动发送。
-- 使用无外部副作用的测试 Skill 发送，确认宿主识别并注入。
-- 依赖缺失时显示“缺少 Skill Explorer 组件”。
-- 接口失败时显示失败信息并可刷新。
-- 切换工作区后不显示其他工作区的项目 Skill。
-- 卸载插件后按钮、面板和样式副作用消失。
+- 桌面端打开“选择 Skill”、搜索 `ui-safe-test`、显示真实名称和描述、单选并关闭：`docs/images/desktop-open-search-select.png`。
+- 移动端完成同一流程并检查面板不越界：`docs/images/mobile-open-search-select.png`。
+- 选择后草稿 `保留这段草稿内容 /ui-safe-test ` 和 `移动端草稿 /ui-safe-test ` 均保留，未自动发送。
+- 重复选择同一 Skill 后，草稿中 `/ui-safe-test` 仍只有一处。
+- 使用无外部副作用的 `ui-safe-test` 发送后，真实页面出现 `上下文注入 ui-safe-test`，确认宿主识别并注入 Skill。隔离 profile 未配置 `DEEPSEEK_API_KEY`，模型请求随后按预期以 `MISSING_CREDENTIAL` 失败，未产生外部副作用。
+- 将列表接口模拟为 HTTP 404 时显示“缺少 Skill Explorer 组件”，截图见 `docs/images/dependency-missing.png`，没有误显示为空目录。
+- 将接口模拟为 HTTP 500 时显示失败信息；恢复接口后点击刷新可恢复列表。
+- 切换到另一个工作区后，当前项目的 `ui-safe-test` 不再出现在列表中。
+- 插件生命周期由单测验证：Slot、全局样式、事件监听和请求 AbortController 均在卸载时清理。
+
+说明：真实 DSH 页面另有一个既有的 `conversation.chat.user-actions` 重复 Slot 控制台错误，来自当前隔离组合的宿主插件组合，不由本插件触发；本插件修复后的运行路径没有再出现 `dsh-skills-input` 运行时错误。
 
 ## 清理
 
