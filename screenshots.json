@@ -1,0 +1,20 @@
+{
+  "status": "pending-real-dsh-capture",
+  "required": [
+    {
+      "name": "desktop-open-search-select",
+      "viewport": "desktop",
+      "path": "docs/images/desktop-open-search-select.png"
+    },
+    {
+      "name": "mobile-open-search-select",
+      "viewport": "mobile",
+      "path": "docs/images/mobile-open-search-select.png"
+    },
+    {
+      "name": "dependency-missing",
+      "viewport": "desktop",
+      "path": "docs/images/dependency-missing.png"
+    }
+  ]
+}
