@@ -1,7 +1,7 @@
 {
   "name": "dsh-skills-input",
-  "version": "0.1.0",
-  "description": "Choose user-invocable DSH skills from the composer and insert their slash command into the draft.",
+  "version": "0.1.1",
+  "description": "DSH Skill selector and skill browser for browsing user-invocable skills and inserting slash commands into the composer.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,7 +11,21 @@
   "bugs": {
     "url": "https://github.com/konglong87/dsh-skills-input/issues"
   },
-  "keywords": ["dsh", "dsh-plugin", "deepseek", "skill"],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek",
+    "deepseek-harness",
+    "skill",
+    "skills",
+    "skill-selector",
+    "skill-browser",
+    "slash-command",
+    "composer",
+    "agent-skills",
+    "技能选择",
+    "斜杠命令"
+  ],
   "type": "module",
   "main": "index.js",
   "exports": {

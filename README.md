@@ -6,6 +6,8 @@
 
 面向不熟悉命令的用户：看名称、读描述、选中 Skill，确认草稿后再发送。
 
+它也可以理解为 dsh 的**技能选择器、Skill 浏览器和斜杠命令入口**，帮助不熟悉命令的用户发现当前会话可用的工作方式。
+
 <p>
   <a href="https://github.com/konglong87/dsh-skills-input/releases"><img src="https://img.shields.io/github/v/release/konglong87/dsh-skills-input?display_name=tag&sort=semver" alt="Latest Release"></a>
   <a href="https://github.com/konglong87/dsh-skills-input/blob/main/LICENSE"><img src="https://img.shields.io/github/license/konglong87/dsh-skills-input" alt="License"></a>
@@ -122,6 +124,25 @@ dsh --profile web --port 3080 --no-open
 | `Escape` | 关闭面板并恢复按钮焦点 |
 
 V1 采用单选模型，一次只插入一个 Skill 调用指令。列表和草稿都不会被插件持久化。
+
+## 常见问题
+
+### 这是 Skill 管理器吗？
+
+不是。插件只负责发现和选择当前已经加载的 Skill，不负责安装、编辑或删除 Skill。
+
+### 它会自动执行 Skill 吗？
+
+不会。它只把真实的 `/skill-name` 斜杠命令写入草稿，用户确认后再发送。
+
+### 它和 dsh-input-list 有什么区别？
+
+`dsh-input-list` 管理用户自己保存的常用文本和提示词模板；`dsh-skills-input` 选择 dsh 宿主已经加载的 Skill。
+
+### 为什么列表为空？
+
+本插件采用方案 A，需要启用真正提供
+`/api/dsh-skill-explorer/list` 接口的 Skill Explorer。缺少依赖时，插件会显示依赖提示，而不是把错误伪装成空列表。
 
 ## 兼容边界
 
